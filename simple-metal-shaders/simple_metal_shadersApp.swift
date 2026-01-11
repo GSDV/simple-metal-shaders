@@ -6,7 +6,7 @@ import SwiftUI
 struct simple_metal_shadersApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ShaderExamples()
         }
     }
 }
