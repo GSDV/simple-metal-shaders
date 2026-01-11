@@ -6,18 +6,18 @@ using namespace metal;
 
 
 [[ stitchable ]] half4 solidPurple(float2 pos, half4 color) {
-    return half4(1, 0, 1, color.a);
+    return half4(1.0f, 0.0f, 1.0f, color.a);
 }
 
 
 
 [[ stitchable ]] half4 invertAlpha(float2 pos, half4 color) {
-    color.a = 1 - color.a;
+    color.a = 1.0f - color.a;
     return color;
 }
 
 
 
 [[ stitchable ]] half4 blueRedGradient(float2 pos, half4 color) {
-    return half4(pos.y/pos.x, 0, pos.x/pos.y, color.a);
+    return half4(pos.y/pos.x, 0.0f, pos.x/pos.y, color.a);
 }
