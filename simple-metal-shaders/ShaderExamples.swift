@@ -9,25 +9,25 @@ struct ShaderExamples: View {
         TimelineView(.animation) { tl in
             let currentTime = tl.date.timeIntervalSince(startTime)
             
-            VStack(spacing: 10) {
+            VStack(spacing: 15) {
                 HStack(alignment: .bottom) {
                     Spacer()
                     IconImage(
                         label: "Recolor",
                         icon: "sparkles",
-                        colorShader: ShaderLibrary.solidPurple()
+                        colorEffect: ShaderLibrary.solidPurple()
                     )
                     
                     IconImage(
                         label: "Invert Alpha",
                         icon: "sparkles",
-                        colorShader: ShaderLibrary.invertAlpha()
+                        colorEffect: ShaderLibrary.invertAlpha()
                     )
     
                     IconImage(
                         label: "Gradient",
                         icon: "figure.walk.circle",
-                        colorShader: ShaderLibrary.blueRedGradient()
+                        colorEffect: ShaderLibrary.blueRedGradient()
                     )
                     Spacer()
                 }
@@ -37,19 +37,41 @@ struct ShaderExamples: View {
                     IconImage(
                         label: "Spin",
                         icon: "figure.walk.circle",
-                        colorShader: ShaderLibrary.spinningDividerLine(.boundingRect, .float(currentTime))
+                        colorEffect: ShaderLibrary.spinningDividerLine(.boundingRect, .float(currentTime))
                     )
                     
                     IconImage(
                         label: "Gradient Spin",
                         icon: "trash.circle.fill",
-                        colorShader: ShaderLibrary.spinningGradient(.boundingRect, .float(currentTime))
+                        colorEffect: ShaderLibrary.spinningGradient(.boundingRect, .float(currentTime))
                     )
                     
                     IconImage(
                         label: "Rainbow",
                         icon: "questionmark.app",
-                        colorShader: ShaderLibrary.rainbowFlash(.boundingRect, .float(currentTime))
+                        colorEffect: ShaderLibrary.rainbowFlash(.boundingRect, .float(currentTime))
+                    )
+                    Spacer()
+                }
+
+                HStack(alignment: .bottom) {
+                    Spacer()
+                    IconImage(
+                        label: "Rainbow 2",
+                        icon: "person.fill",
+                        colorEffect: ShaderLibrary.rainbowFlash2(.boundingRect, .float(currentTime))
+                    )
+                    
+                    IconImage(
+                        label: "Wave",
+                        icon: "figure.pool.swim.circle.fill",
+                        distortionEffect: ShaderLibrary.waterWave(.float(currentTime))
+                    )
+                    
+                    IconImage(
+                        label: "Flag",
+                        icon: "square.fill",
+                        distortionEffect: ShaderLibrary.flagWave(.boundingRect, .float(currentTime))
                     )
                     Spacer()
                 }

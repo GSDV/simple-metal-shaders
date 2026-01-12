@@ -44,3 +44,14 @@ using namespace metal;
     float3 rgb = 0.5f + 0.5f * cos(2.0f * M_PI_F * (t + float3(0.0f, 0.33f, 0.67f)));
     return half4(half(rgb.r), half(rgb.g), half(rgb.b), color.a);
 }
+
+
+
+half normalizeSin(float n) {
+    return (sin(n) + 1) / 2;
+}
+
+[[stitchable]] half4 rainbowFlash2(float2 pos, half4 color, float4 bounds, float t) {
+    float angle = atan2(pos.y, pos.x) + t * 5.0f;
+    return half4(normalizeSin(angle), normalizeSin(angle + 2.0f/3.0f * M_PI_H), normalizeSin(angle + 2.0f * 2.0f/3.0f * M_PI_H), color.a);
+}
